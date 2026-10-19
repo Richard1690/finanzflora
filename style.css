@@ -1,0 +1,61 @@
+/* Finanzflora: Angebotsseite. Farben wie Kanal und Handouts (youtube/kanalkonzept.md §7), Systemschrift, keine
+   externen Schriften oder Skripte (nichts wird von fremden Servern geladen, siehe datenschutz.html). */
+:root {
+  --gruen: #2E7D5B; --gruen-2: #3E8E68; --gruen-hell: #BBD8C4; --wiese: #EEF3EA;
+  --creme: #F7F6F2; --text: #1F2937; --grau: #6B7280; --linie: #DEDAD0; --dunkel: #14321F;
+  --karte: #FFFFFF; --rot: #C0392B;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --creme: #111A15; --text: #E7ECE8; --grau: #A3ADA7; --linie: #2B3A31; --karte: #18241D; --wiese: #16231B;
+    --gruen-hell: #2E5A43; --dunkel: #0B1510;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--creme); color: var(--text); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+a { color: var(--gruen); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header.top { padding: 18px 0; }
+.marke { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; color: var(--text); text-decoration: none; }
+.marke svg { width: 34px; height: 34px; }
+.hero { padding: 36px 0 44px; }
+.hero h1 { font-size: clamp(30px, 6vw, 50px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 16px; }
+.hero h1 em { font-style: normal; color: var(--gruen); }
+.hero p.lead { font-size: clamp(17px, 2.4vw, 20px); color: var(--grau); max-width: 680px; margin: 0 0 26px; }
+.knopf { display: inline-block; background: var(--gruen); color: #fff; text-decoration: none; font-weight: 700; padding: 15px 24px; border-radius: 12px; }
+.knopf:hover { background: var(--gruen-2); }
+.knopf.zwei { background: transparent; color: var(--gruen); border: 2px solid var(--gruen); }
+.klein { font-size: 14px; color: var(--grau); }
+section { padding: 34px 0; }
+h2 { font-size: clamp(24px, 4vw, 32px); line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 18px; }
+h3 { font-size: 21px; margin: 0 0 8px; }
+.raster { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 18px; }
+.karte { background: var(--karte); border: 1px solid var(--linie); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; }
+.karte.hervor { border: 2px solid var(--gruen); }
+.karte .art { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gruen); margin-bottom: 6px; }
+.karte ul { padding-left: 20px; margin: 10px 0 16px; }
+.karte li { margin: 4px 0; }
+.preis { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--linie); }
+.preis b { font-size: 28px; }
+.preis s { color: var(--grau); margin-left: 8px; }
+.preis .hinweis { display: block; font-size: 14px; color: var(--grau); }
+.schritte { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.schritte li { counter-increment: s; background: var(--karte); border: 1px solid var(--linie); border-radius: 14px; padding: 16px 18px 16px 62px; position: relative; }
+.schritte li::before { content: counter(s); position: absolute; left: 16px; top: 15px; width: 32px; height: 32px; border-radius: 50%; background: var(--gruen); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.band { background: var(--wiese); border-top: 1px solid var(--linie); border-bottom: 1px solid var(--linie); }
+.nicht { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.nicht li::before { content: "✕"; color: var(--rot); font-weight: 800; margin-right: 10px; }
+.ja li::before { content: "✓"; color: var(--gruen); }
+details { background: var(--karte); border: 1px solid var(--linie); border-radius: 12px; padding: 14px 18px; margin: 0 0 10px; }
+summary { font-weight: 700; cursor: pointer; }
+details p { margin: 10px 0 0; }
+.ueber { display: grid; grid-template-columns: 120px 1fr; gap: 22px; align-items: start; }
+.ueber img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; background: var(--gruen-hell); }
+@media (max-width: 560px) { .ueber { grid-template-columns: 1fr; } }
+.abschluss { text-align: center; padding: 48px 0 56px; }
+footer { border-top: 1px solid var(--linie); padding: 22px 0 34px; font-size: 14px; color: var(--grau); }
+footer a { color: var(--grau); margin-right: 16px; }
+.recht h1 { font-size: 32px; margin: 10px 0 18px; }
+.recht h2 { font-size: 21px; margin: 28px 0 8px; }
+.recht p, .recht li { max-width: 760px; }
